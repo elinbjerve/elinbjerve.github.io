@@ -32,7 +32,10 @@ jobs:
       - name: npm run test
         run: npm run test 
         
-  
+      - name: Run typescript lint and format check
+        run: npm run lint:ts
+      - name: Run styles lint and format check
+        run: npm run lint:css
   
   deploy:
     needs: [build, test]
@@ -51,4 +54,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: dist
+          folder: dist 
+          
